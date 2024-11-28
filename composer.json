@@ -1,0 +1,15 @@
+{
+    "name": "ceytek-labs/deutsche-automobil-treuhand-services-lite",
+    "autoload": {
+        "psr-4": {
+            "CeytekLabs\\DeutscheAutomobilTreuhandServicesLite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ceyhun-celik",
+            "email": "ceyhunbcelik@icloud.com"
+        }
+    ],
+    "require": {}
+}
