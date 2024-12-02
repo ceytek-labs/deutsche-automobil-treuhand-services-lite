@@ -19,4 +19,9 @@ class Service
     {
         return VehicleIdentificationService::make($this->token);
     }
+
+    public function vehicleSelection(): VehicleSelectionService
+    {
+        return VehicleSelectionService::make($this->token);
+    }
 }
