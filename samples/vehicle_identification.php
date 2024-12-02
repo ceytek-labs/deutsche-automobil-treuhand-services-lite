@@ -6,8 +6,8 @@ $dat = DAT::make('<your-token>')
     ->service()
     ->vehicleIdentification()
     ->setVin('<your-vin>')
-    ->setLanguage('<language-code-lowecase>')
-    ->setCountry('<country-code-uppercase>')
+    ->setLocaleLanguage('<language-code-lowecase>')
+    ->setLocaleCountry('<country-code-uppercase>')
     ->get();
 
 print_r($dat);

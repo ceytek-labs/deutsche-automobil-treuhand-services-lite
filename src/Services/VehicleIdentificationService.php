@@ -18,11 +18,20 @@ class VehicleIdentificationService
     
     private string $coverage = 'ALL';
     
-    private string $country;
+    private string $localeCountry;
     
-    private string $language;
+    private string $localeDatCountryIndicator = 'DE';
 
-    private string $datCountryIndicator = 'DE';
+    private string $localeLanguage;
+
+    public static function make(string $token): self
+    {
+        $instance = new self;
+
+        $instance->token = $token;
+
+        return $instance;
+    }
 
     public function setSessionId(string $sessionId): self
     {
@@ -66,34 +75,25 @@ class VehicleIdentificationService
         return $this;
     }
 
-    public function setCountry(string $country): self
+    public function setLocaleCountry(string $localeCountry): self
     {
-        $this->country = $country;
+        $this->localeCountry = $localeCountry;
 
         return $this;
     }
 
-    public function setLanguage(string $language): self
+    public function setLocaleDatCountryIndicator(string $localeDatCountryIndicator): self
     {
-        $this->language = $language;
+        $this->localeDatCountryIndicator = $localeDatCountryIndicator;
 
         return $this;
     }
 
-    public function setDatCountryIndicator(string $datCountryIndicator): self
+    public function setLocaleLanguage(string $localeLanguage): self
     {
-        $this->datCountryIndicator = $datCountryIndicator;
+        $this->localeLanguage = $localeLanguage;
 
         return $this;
-    }
-
-    public static function make(string $token): self
-    {
-        $instance = new self;
-
-        $instance->token = $token;
-
-        return $instance;
     }
 
     public function get()
@@ -133,9 +133,9 @@ class VehicleIdentificationService
             $parameters->request->coverage = $this->coverage;
     
             $parameters->request->locale = new \stdClass();
-            $parameters->request->locale->country = $this->country;
-            $parameters->request->locale->datCountryIndicator = $this->datCountryIndicator;
-            $parameters->request->locale->language = $this->language;
+            $parameters->request->locale->country = $this->localeCountry;
+            $parameters->request->locale->datCountryIndicator = $this->localeDatCountryIndicator;
+            $parameters->request->locale->language = $this->localeLanguage;
     
             return $client->getVehicleIdentificationByVin($parameters);
         } catch (\SoapFault $soapFault) {
