@@ -102,12 +102,12 @@ class VehicleIdentificationService
             throw new \Exception('Please set your VIN');
         }
 
-        if (! isset($this->language)) {
-            throw new \Exception('Please set your language');
+        if (! isset($this->localeLanguage)) {
+            throw new \Exception('Please set your locale language');
         }
 
-        if (! isset($this->country)) {
-            throw new \Exception('Please set your country');
+        if (! isset($this->localeCountry)) {
+            throw new \Exception('Please set your locale country');
         }
 
         try {
